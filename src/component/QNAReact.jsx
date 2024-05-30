@@ -84,7 +84,7 @@ const reactQuestions = [
         answer: "Reconciliation is the process by which React updates the DOM. When a component's state or props change, React creates a new virtual DOM tree and compares it with the previous one to determine the minimal changes required to update the actual DOM."
     },
     {
-        question: "Explain the concept of reconciliation in React.",
+        question: "what is React Fragment in React?",
         answer: "A React fragment allows you to group multiple elements without adding an extra node to the DOM. It is used with the <React.Fragment> tag or the shorthand <>."
     },
     {
@@ -133,6 +133,97 @@ const reactQuestions = [
     },
 ]
 
+const nodeQuestions = [
+    {
+        question: "What is Node.js?",
+        answer: "Node.js is a runtime environment that allows you to run JavaScript code on the server side. It uses the V8 JavaScript engine from Google Chrome and is built on an event-driven, non-blocking I/O model."
+    },
+    {
+        question: "What are the main features of Node.js?",
+        answer: "Key features of Node.js include asynchronous and event-driven architecture, non-blocking I/O, single-threaded execution model, fast performance due to the V8 engine, and a rich ecosystem of libraries via npm."
+    },
+    {
+        question: "How does Node.js handle asynchronous operations?",
+        answer: "Node.js handles asynchronous operations using callbacks, promises, and async/await. The event loop processes asynchronous callbacks and ensures non-blocking I/O operations."
+    },
+    {
+        question: "What is the Event Loop in Node.js?",
+        answer: "The Event Loop is a core part of Node.js that handles asynchronous callbacks. It allows Node.js to perform non-blocking I/O operations by offloading operations to the system kernel whenever possible."
+    },
+    {
+        question: "Explain the use of require in Node.js.",
+        answer: "require is used to import modules, JSON, or local files in Node.js. It allows you to include and use libraries and files in your code."
+    },
+    {
+        question: "What is npm and what is its purpose?",
+        answer: "npm (Node Package Manager) is the default package manager for Node.js. It is used to manage, share, and deploy Node.js packages and modules."
+    },
+    {
+        question: "What is a callback function in Node.js?",
+        answer: "A callback function is a function that is passed as an argument to another function and is executed after the completion of the asynchronous operation."
+    },
+    {
+        question: "What are streams in Node.js?",
+        answer: "Streams are objects that allow you to read or write data continuously. Node.js has four types of streams: readable, writable, duplex (both readable and writable), and transform (a type of duplex stream where the output is computed based on input)."
+    },
+    {
+        question: "What is the purpose of the package.json file in a Node.js project?",
+        answer: "The package.json file holds metadata about the project and is used to manage the project's dependencies, scripts, versioning, and configuration."
+    },
+    {
+        question: "How does Node.js handle multiple concurrent requests?",
+        answer: "Node.js handles multiple concurrent requests using its event-driven, non-blocking I/O model. The single-threaded event loop delegates I/O tasks to the underlying system (kernel), which can handle them asynchronously. This allows Node.js to manage thousands of connections concurrently without creating multiple threads."
+    },
+    {
+        question: "Explain the role of the event loop in Node.js.",
+        answer: "The event loop is the mechanism that allows Node.js to perform non-blocking I/O operations by offloading operations to the system kernel whenever possible. It handles callbacks and events, executing them in a loop until there are no more tasks to be processed."
+    },
+    {
+        question: "How do you handle CPU-intensive tasks in Node.js?",
+        answer: "CPU-intensive tasks can be handled using worker threads, child processes, or delegating the work to external services. This prevents blocking the event loop and ensures that the server remains responsive."
+    },
+    {
+        question: "What is the cluster module in Node.js, and how does it help in handling concurrent requests?",
+        answer: "The cluster module allows you to create child processes (workers) that share the same server port. This helps in utilizing multiple CPU cores to handle concurrent requests, improving the performance and scalability of the application."
+    },
+    {
+        question: "What are the common strategies to handle a large number of requests in Node.js?",
+        answer: "Load balancing using tools like Nginx or HAProxy, Using the cluster module to utilize multiple CPU cores, Implementing caching using Redis or Memcached, Optimizing database queries and using connection pooling, Implementing rate limiting to prevent abuse."
+    },
+    {
+        question: "How do you secure a Node.js application?",
+        answer: "Validating and sanitizing user inputs to prevent injection attacks, Using HTTPS to encrypt data in transit, Implementing authentication and authorization mechanisms, Using environment variables to manage sensitive data, Regularly updating dependencies to fix vulnerabilities, Using security headers with libraries like helmet."
+    },
+    {
+        question: "Understanding the Event Loop (1st: Concept)",
+        answer: "1. Concept: The event loop is the heart of Node.js, enabling it to perform non-blocking I/O operations despite being single-threaded. It allows Node.js to handle multiple operations without creating multiple threads."
+    },
+    {
+        question: "2. Phases",
+        answer: "The event loop has several phases: timers, pending callbacks, idle/prepare, poll, check, close callbacks."
+    },
+    {
+        question: "Asynchronous Programming:",
+        answer: "Callbacks: Traditional way to handle async operations, Promises: Modern approach to handle async operations, Async/Await: Syntactic sugar over promises, making async code look synchronous."
+    },
+    {
+        question: "Basic Node.js Concepts like Routing and Project Structure",
+        answer: "Concept: Routing determines how an application responds to a client request to a particular endpoint."
+    },
+    {
+        question: "Core Node.js File Handling Capabilities",
+        answer: "Reading Files: we will import fs library and use its properties like readFile, writeFile, readFileSync, writeFileSync"
+    },
+    {
+        question: "Handling Concurrent Requests in Node.js",
+        answer: "Event Loop and Asynchronous I/O: Node.js is designed to handle many concurrent connections efficiently. It uses a single-threaded event loop for managing I/O operations asynchronously."
+    },
+    {
+        question: "",
+        answer: ""
+    },
+]
+
   return (
     <div className='container mx-5'>
         <h1 className='font-bold underline lg:text-6xl pt-5'>Mock QNA:-</h1>
@@ -143,9 +234,22 @@ const reactQuestions = [
                 <a href={`#${index}`} className='no-underline text-teal-400 hover:no-underline hover:text-inherit hover:cursor-pointer'>{lead.question}</a>
             </li>
         ))}
+        <h1 className='font-bold text-4xl pt-5'>Node-</h1>
+        { nodeQuestions.map((lead, index) => (
+            <li>
+                <a href={`#node${index}`} className='no-underline text-teal-400 hover:no-underline hover:text-inherit hover:cursor-pointer'>{lead.question}</a>
+            </li>
+        ))}
         { reactQuestions.map((lead, index) => (
             <li>
                 <h1 className='no-underline text-teal-400 hover:no-underline lg:text-4xl' id={index}>{lead.question}</h1>
+                <p className='lg:text-2xl text-teal-100 pt-3 pb-5'>{lead.answer}</p>
+            </li>
+        ))}
+        <button className='fixed right-10 bottom-7 bg-white text-teal-800 w-10 h-10 rounded-full flex justify-center items-center'><a href="#react"><BsArrow90DegUp /></a></button>
+        { nodeQuestions.map((lead, index) => (
+            <li>
+                <h1 className='no-underline text-teal-400 hover:no-underline lg:text-4xl' id={`node${index}`}>{lead.question}</h1>
                 <p className='lg:text-2xl text-teal-100 pt-3 pb-5'>{lead.answer}</p>
             </li>
         ))}
