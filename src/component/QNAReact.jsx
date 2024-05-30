@@ -1,4 +1,5 @@
 import React from 'react'
+import { BsArrow90DegUp } from 'react-icons/bs'
 
 export default function QNA() {
 const reactQuestions = [
@@ -135,7 +136,8 @@ const reactQuestions = [
   return (
     <div className='container mx-5'>
         <h1 className='font-bold underline lg:text-6xl pt-5'>Mock QNA:-</h1>
-        <h1 className='font-bold text-4xl pt-5'>React-</h1>
+        <h1 className='font-bold text-4xl pt-5' id='react'>React-</h1>
+        <button className='fixed right-10 bottom-7 bg-white text-teal-800 w-10 h-10 rounded-full flex justify-center items-center'><a href="#react"><BsArrow90DegUp /></a></button>
         { reactQuestions.map((lead, index) => (
             <li>
                 <a href={`#${index}`} className='no-underline text-teal-400 hover:no-underline hover:text-inherit hover:cursor-pointer'>{lead.question}</a>
@@ -144,7 +146,7 @@ const reactQuestions = [
         { reactQuestions.map((lead, index) => (
             <li>
                 <h1 className='no-underline text-teal-400 hover:no-underline lg:text-4xl' id={index}>{lead.question}</h1>
-                <p className='lg:text-2xl text-teal-100 pt-3'>{lead.answer}</p>
+                <p className='lg:text-2xl text-teal-100 pt-3 pb-5'>{lead.answer}</p>
             </li>
         ))}
     </div>
