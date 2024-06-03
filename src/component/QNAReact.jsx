@@ -248,7 +248,7 @@ const nodeQuestions = [
     },
     {
         question: "REPL in Node",
-        answer: "REPL stands for REAL EVAL PRINT LOOP and it represents a computer environment. It's similar to a Windows console or Unix/Linux shell in which a command is entered. Then, the system responds with an output. READ - Reads user's input, parses the input into the javascript data-structure and stores in memory. EVAL - Takes and evaluates the data structure. PRINT - Prints the result. LOOP -Loops the above command until user presses ctrl-c twice"
+        answer: "REPL stands for REAL EVAL PRINT LOOP and it represents a computer environment. It's similar to a Windows console or Unix/Linux shell in which a command is entered. Then, the system responds with an output. READ - Reads user's input, parses the input into the javascript data-structure and stores in memory. EVAL - Takes and evaluates the data structure. PRINT - Prints the result. LOOP -Loops the above command until user presses ctrl-c twice REPL is commonly used for experimenting with code, prototyping, and debugging. It is also helpful for learning and exploring the Node.js runtime and its APIs."
     },
     {
         question: "What is the control Flow function and How does control flow manages the function calls?",
