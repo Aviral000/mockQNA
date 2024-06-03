@@ -242,6 +242,10 @@ const nodeQuestions = [
         question: "Runtime environment",
         answer: "Node.js is a runtime environment that allows you to run JavaScript code on the server-side. It provides a platform for executing server-side code and interacting with the operating system, file system, and other system resources. With Node.js, you can build server-side applications, APIs, and perform various tasks effortlessly."
     },
+    {
+        question: `What does it mean "Once the operation completes it will create promise or callback"`,
+        answer: "fs.readFile('example.txt', 'utf8', (err, data) => {} in this example, first the operation is going to work which is reading the file asynchronously once the reading operation complete then via callback or promise it will response back to the event loop."
+    }
 ]
 
   return (
