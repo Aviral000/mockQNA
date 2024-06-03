@@ -184,7 +184,7 @@ const nodeQuestions = [
     },
     {
         question: "What is the cluster module in Node.js, and how does it help in handling concurrent requests?",
-        answer: "The cluster module allows you to create child processes (workers) that share the same server port. This helps in utilizing multiple CPU cores to handle concurrent requests, improving the performance and scalability of the application."
+        answer: "The Cluster module in Node.js is used to create child processes (workers) that share the same server port, enabling the handling of concurrent requests by distributing them across multiple worker processes. This module is particularly useful for taking advantage of multi-core systems, as Node.js is single-threaded by default."
     },
     {
         question: "What are the common strategies to handle a large number of requests in Node.js?",
@@ -245,6 +245,18 @@ const nodeQuestions = [
     {
         question: `What does it mean "Once the operation completes it will create promise or callback"`,
         answer: "fs.readFile('example.txt', 'utf8', (err, data) => {} in this example, first the operation is going to work which is reading the file asynchronously once the reading operation complete then via callback or promise it will response back to the event loop."
+    },
+    {
+        question: "REPL in Node",
+        answer: "REPL stands for REAL EVAL PRINT LOOP and it represents a computer environment. It's similar to a Windows console or Unix/Linux shell in which a command is entered. Then, the system responds with an output. READ - Reads user's input, parses the input into the javascript data-structure and stores in memory. EVAL - Takes and evaluates the data structure. PRINT - Prints the result. LOOP -Loops the above command until user presses ctrl-c twice"
+    },
+    {
+        question: "What is the control Flow function and How does control flow manages the function calls?",
+        answer: "The control Flow function is a piece of code that runs in between several asynchronous function calls. It follows job: Control the order of execution -> Collect Data -> Limit concurrency -> Call the next step in a program"
+    },
+    {
+        question: "Flags used in the read/write operations in files",
+        answer: "r - open file for reading, an error occurs if the files does't exist. r+ - Opens the file for both reading and writing, if the file does not exist, an error (exception) is thrown. w - Opens the file for both writing, If the file exists, its contents are truncated (overwritten). If the file does not exist, it is created. w+ - Opens the file for both writing and reading. If the file exists, its contents are truncated (overwritten). a - If the file does not exist, it is created. Opens the file for appending. If the file exists, the file pointer is positioned at the end of the file for appending. If the file does not exist, it is created. a+ - Opens the file for both appending and reading. If the file exists, the file pointer is positioned at the end of the file for appending. If the file does not exist, it is created."
     }
 ]
 
