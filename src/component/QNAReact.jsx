@@ -219,8 +219,28 @@ const nodeQuestions = [
         answer: "Event Loop and Asynchronous I/O: Node.js is designed to handle many concurrent connections efficiently. It uses a single-threaded event loop for managing I/O operations asynchronously."
     },
     {
-        question: "",
-        answer: ""
+        question: "Asynchronous behavior",
+        answer: "Node.js is designed to handle asynchronous operations, meaning that it doesn't block the execution of code while waiting for I/O operations to complete. Instead, it registers callbacks or uses promises to handle the results once the operations are finished."
+    },
+    {
+        question: "Handling multiple requests concurrently",
+        answer: "Node.js can handle multiple requests simultaneously, thanks to its non-blocking I/O model. It doesn't wait for a response from one request before moving on to the next, allowing it to process a high volume of requests concurrently."
+    },
+    {
+        question: "Single-threaded event loop",
+        answer: "Node.js uses a single-threaded event loop model. The event loop is responsible for handling the flow of execution and delegating tasks to the appropriate handlers. It allows only one request to pass through at a time, but it doesn't wait for the response before processing the next request."
+    },
+    {
+        question: "Non-blocking I/O operations",
+        answer: "Node.js leverages non-blocking I/O operations, which means that it can continue executing other tasks while waiting for I/O operations to complete. This is similar to concurrency, where multiple tasks can be processed simultaneously without blocking each other."
+    },
+    {
+        question: "Efficient utilization of system resources:",
+        answer: "Node.js is designed to maximize the utilization of system resources. Its non-blocking I/O model and event-driven architecture allow it to handle a large number of concurrent connections with minimal overhead, making it highly scalable and efficient."
+    },
+    {
+        question: "Runtime environment",
+        answer: "Node.js is a runtime environment that allows you to run JavaScript code on the server-side. It provides a platform for executing server-side code and interacting with the operating system, file system, and other system resources. With Node.js, you can build server-side applications, APIs, and perform various tasks effortlessly."
     },
 ]
 
