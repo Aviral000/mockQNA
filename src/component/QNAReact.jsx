@@ -57,7 +57,7 @@ const reactQuestions = [
     },
     {
         question: "2. Updating",
-        answer: "getDerivedStateFromProps(props, state): same as mounting, shouldComponentUpdate: return boolean, if a state or prop is updating which led in re-rendering on ui, render(): returns the updated JSX or UI component to the real dom, getSnapshotBeforeUpdate(): Called right before changes are committed to the DOM, used for capturing some information from the DOM. componentDidUpdate: Called after the component's updates are flushed to the DOM. It’s a good place to make network requests as long as you compare the current props to previous props."
+        answer: "getDerivedStateFromProps(props, state): same as mounting, shouldComponentUpdate: return boolean, if a state or prop is updating which led in re-rendering on ui, render(): returns the updated JSX or UI component to the real dom, getSnapshotBeforeUpdate(prevProps, prevState): Captures information from the DOM before it changes. Returns a value that will be passed to componentDidUpdate. componentDidUpdate(prevProps, prevState, snapshot): Called after the DOM updates. Good for making network requests or manipulating the DOM based on previous props or state."
     },
     {
         question: "3. Unmounting",
