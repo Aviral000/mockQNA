@@ -171,6 +171,26 @@ const nodeQuestions = [
         answer: "Injection Attacks: SQL injection, NoSQL injection, etc. Cross-Site Scripting (XSS): Inserting malicious scripts into web pages. Cross-Site Request Forgery (CSRF): Forging requests on behalf of authenticated users. Data Exposure: Sensitive data exposure due to improper handling of data. Denial of Service (DoS): Overloading the server with too many requests."
     },
     {
+        question: "Child Thread",
+        answer: "Separate Memory: Each child process runs independently with its own memory. Communication: Parent and child processes can communicate via IPC. Modules: child_process, cluster. Creates separate processes with their own memory and event loops. Suitable for tasks that need isolation or are CPU-intensive."
+    },
+    {
+        question: "Worker Thread",
+        answer: "worker_threads that was introduced to provide a way to perform parallel processing using multiple threads. This module allows you to create separate JavaScript threads, each running in its own isolated context, and enables parallel execution of tasks. Worker threads can be used to perform CPU-intensive operations without blocking the main event loop, leading to better utilization of multi-core systems. Each worker thread runs in a separate JavaScript context, meaning they have their own memory space and don’t share variables or data directly with the main thread or other worker threads. Shared Memory: Threads can share memory using SharedArrayBuffer. Communication: Uses message passing through parentPort. Use Case: Suitable for CPU-bound tasks that can benefit from parallel processing within the same application instance."
+    },
+    {
+        question: "How can we scale a Node.js application, and what role does load balancing play in achieving scalability?",
+        answer: "Vertical scaling involves increasing the capacity of a single server, for example, by adding more CPU, memory, or storage. This method is limited by the physical constraints of a single machine and can become expensive. Upgrade Hardware: Increase the server's CPU, RAM, and storage. Optimize Code: Ensure that your Node.js application is optimized for performance. Horizontal scaling involves adding more instances of your application to handle the load. This method provides more flexibility and is generally more cost-effective for large-scale applications. Use the cluster module to create multiple Node.js processes that share the same server port and can handle requests concurrently. Each cluster instance runs on a separate CPU core. Distribute incoming requests across multiple instances of your application to ensure no single instance becomes a bottleneck. Load balancers can operate at different layers (L4 for TCP/UDP traffic, L7 for HTTP/HTTPS traffic). Nginx: Acts as a reverse proxy to distribute incoming HTTP requests. HAProxy: High-availability load balancer for TCP and HTTP-based applications. Cloud Load Balancers: AWS Elastic Load Balancing (ELB), Google Cloud Load Balancing, Azure Load Balancer. Use Docker to containerize your Node.js application, making it easy to deploy and manage multiple instances. Use Kubernetes or Docker Swarm for container orchestration to manage, scale, and deploy containerized applications. Efficient Resource Utilization: Distributes traffic across multiple servers, preventing any single server from being overwhelmed. High Availability: If one server goes down, the load balancer can reroute traffic to other available servers, providing fault tolerance. Scalability: Makes it easier to add or remove instances based on traffic load without downtime. Improved Performance: Reduces response time by distributing requests to less busy servers."
+    },
+    {
+        question: "How can we prevent common security issues like Cross-Site Scripting (XSS) in a Node.js web application?",
+        answer: "Ensure that any data being output to the web page is properly encoded. This prevents injected scripts from being executed. Example: Using escape-html Package. Many template engines automatically escape HTML by default. This ensures that any data inserted into the template is safe. Example: Using Handlebars. Sanitizing input ensures that any potentially dangerous characters are removed or encoded. Example: Using sanitize-html Package. CSP is an HTTP header that helps prevent XSS by specifying the sources from which content is allowed to load. Example: Setting CSP in Express. Make use of helemt module for http header. Always validate and sanitize input on the server-side to ensure it conforms to expected formats. Example: Using validator Package. Use HTTP-only cookies to prevent client-side scripts from accessing the cookies. Example: Setting HTTP-Only Cookie in Express. Regularly update your dependencies to ensure you are protected against known vulnerabilities."
+    },
+    {
+        question: "How can you handle file uploads in a Node.js application",
+        answer: "By using multer, you can efficiently handle file uploads in your Node.js application. Multer provides a robust solution for managing file uploads, including storage, validation, and error handling. This setup ensures that files are securely and correctly uploaded to your server."
+    },
+    {
         question: "How does Node.js handle asynchronous operations?",
         answer: "Node.js handles asynchronous operations using callbacks, promises, and async/await. The event loop processes asynchronous callbacks and ensures non-blocking I/O operations."
     },
@@ -297,6 +317,34 @@ const expressQuestions = [
         question: "What is the significance of body-parser package?",
         answer: "primary purposes of body-parser is to parse the request body, which contains data submitted by the client in an HTTP POST request. This data is often in the form of form data or JSON. ITs a middleware for Express framework and can be added to express application using app.use(). 1 const express = require(‘express’); 2 const bodyParser = require(‘body-parser’); 3 const app = express(); 4 app.use(bodyParser.json()); 5 app.use(bodyParser.urlencoded({ extended: true }));"
     },
+    {
+        question: "What is Express router() function?",
+        answer: "The `router()` function is a built-in middleware function in Express.js that allows creating modular and mountable route handlers. It enhances the functionality of the Express application by providing a way to create separate files for different routes. Organizing Routes: The `router()` function is used to create separate files for different sets of routes, allowing for better organization and maintainability. Code Reusability: By using the `router()` function, route handlers can be created as separate modules that can be easily reused across different parts of the application. Mounting Routers: The `router()` function is used to mount the created router instances on specific paths, allowing for a hierarchical and modular structure of routes."
+    },
+    {
+        question: "Mention some third-party middleware provided by Express JS",
+        answer: "Helmet: It is a security middleware used to set HTTP headers for enhanced security. Morgan: It is a logging middleware used to log HTTP requests and response. Compression: It is a middleware used to compress HTTP responses to reduce the size of the data. Cookie-parser: It is a middleware used to parse and handle cookies in HTTP requests. Cors"
+    },
+    {
+        question: "List the built-in middleware functions provided by Express",
+        answer: "express.json(): A middleware that parses JSON data from a request body. express.urlencoded(): A middleware that parses URL-encoded data from a request body. express.static(): A middleware that serves static files from a specified directory. express.Router(): A middleware that provides modular routing. express.cookieParser(): A middleware that parses cookies from a request. express.session(): A middleware that manages user sessions."
+    },
+    {
+        question: "What are middlewares in Express.Js?",
+        answer: "Middlewares in Express.js are functions that are executed in between receiving a request and sending a response. They have access to the request and response objects, and can modify them or perform additional tasks before passing control to the next middleware in the chain. Middlewares can be used in various scenarios, including handling authentication, logging, error handling, and parsing request bodies. Define the middleware function using the following syntax: function middlewareFunction(req, res, next) Use the middleware function in your Express application by calling `app.use()` or `app.METHOD()` (e.g., `app.get()`, `app.post()`, etc.). The middleware will be executed for each request that matches the specified path. The middleware function can modify the request and response objects, perform operations, and even terminate the request-response cycle by sending a response."
+    },
+    {
+        question: "What is the use of ‘Response.cookie()’ function?",
+        answer: "The 'Response.cookie()' function is used to set a cookie in the response object in web development. It is used in web development frameworks to send cookies to the client's web browser when generating an HTTP response. res.cookie('jwt', { session: expiryTime, httpOnly: true/false })"
+    },
+    {
+        question: "What is meant by Scaffolding in Express JS?",
+        answer: "Scaffolding in Express JS refers to the process of generating a basic directory structure and some initial code files to set up a new Express.js project quickly. It provides a starting point for the application, including predefined project files and folder structure, routing, and configuration files. Scaffolding in Express JS is commonly used in web development projects to speed up the initial project setup and reduce repetitive tasks. Install the Express Generator package globally by running the following command: npm install -g express-generator. Create a new Express project by executing the following command: express myproject. Change into the project directory: cd myproject. Install the project dependencies: npm install > npm start"
+    },
+    {
+        question: "What do you understand about ESLint?",
+        answer: "ESLint is a popular open-source JavaScript linting utility that analyzes code for potential errors, coding style issues, and enforces predetermined guidelines for maintainability. It is widely used in the JavaScript community to ensure code quality and consistency across projects. ESLint is primarily used in JavaScript projects, both on the front-end and back-end, to improve code quality, catch common errors, and enforce coding style. Install ESLint globally or locally within the project. Configure ESLint by creating a `.eslintrc` or `.eslintrc.json` file in the project root directory. This file specifies the rules and configurations. Customize the ESLint rules by enabling or disabling rules, setting severity levels, or adding additional rules using the configuration file. Run ESLint by either using the command-line interface (CLI) or integrating it with popular text editors and IDEs. The CLI command `eslint <filename>` analyzes the specified file(s) and reports any errors or warnings. Review and fix the reported errors and warnings based on the ESLint guidelines and recommendations."
+    }
 ]
 
 const mongodbQuestions = [
@@ -369,12 +417,20 @@ const mongodbQuestions = [
         answer: "Authentication: Enable authentication to require users to log in. Authorization: Implement role-based access control (RBAC) to restrict user actions. Encryption: Use TLS/SSL for data in transit and enable encryption at rest. Network Security: Use firewalls and IP whitelisting to restrict access."
     },
     {
-        question: "",
-        answer: ""
+        question: "What is the correct mongosh command for an engineer to securely connect to a self-hosted MongoDB with a username and password?",
+        answer: "To connect securely to a self-hosted MongoDB instance with authentication, engineers typically use the mongo shell (mongosh) command-line tool, which provides an interactive JavaScript interface for MongoDB operations. mongosh --host <hostname>:<port> --username <username> --password <password> --authenticationDatabase <authDatabase>"
     },
     {
-        question: "",
-        answer: ""
+        question: "What is aggregation in mongoDB",
+        answer: "Aggregation in MongoDB is a pipeline framework that processes data records and performs various operations to produce aggregated results based on those records. Aggregation in MongoDB is used for data analytics and complex data processing tasks, such as calculating averages, finding maximum or minimum values, grouping data, and applying conditional operations. Select and match the relevant documents using the $match operator. Group the selected documents based on specific fields using the $group operator. Apply various aggregation operations like sum, average, count, etc., using operators like $sum, $avg, $count, etc. Sort the aggregated results based on specific fields using the $sort operator. Apply additional operations like limiting results using the $limit operator or skipping documents using the $skip operator."
+    },
+    {
+        question: "What are Geospatial Indexes in MongoDB?",
+        answer: "Geospatial indexes in MongoDB are special indexes used to efficiently store and query geospatial data, such as points, lines, and polygons. They are used in applications that require geospatial queries or analysis, such as location-based services, geographic information systems, and mapping applications. Store the geospatial data in a collection using the GeoJSON format. Create a geospatial index on the desired field(s) using the `createIndex()` method. Perform geospatial queries using MongoDB's geospatial operators such as `$near`, `$geoWithin`, and `$geoIntersects`. db.places.createIndex({ location: '2dsphere' })"
+    },
+    {
+        question: "How to optimize the performance of a MongoDB database in a MERN stack application?",
+        answer: "Strategies include indexing frequently queried fields, using the appropriate data types, leveraging the aggregation framework for complex queries, and considering sharding for large datasets. Additionally, use tools like explain() to analyze query performance and identify potential optimizations."
     },
 ]
 
