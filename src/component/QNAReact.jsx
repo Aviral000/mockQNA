@@ -159,6 +159,18 @@ const nodeQuestions = [
         answer: "Key features of Node.js include asynchronous and event-driven architecture, non-blocking I/O, single-threaded execution model, fast performance due to the V8 engine, and a rich ecosystem of libraries via npm."
     },
     {
+        question: "What are some common performance optimization techniques in Node.js?",
+        answer: "Cluster Module: Utilize the cluster module to create child processes that share server ports. Load Balancing: Distribute incoming traffic across multiple servers. Caching: Use caching mechanisms like Redis to store frequently accessed data. Code Profiling: Use tools like clinic to profile and analyze the performance of your application. Asynchronous Operations: Use asynchronous methods to avoid blocking the event loop."
+    },
+    {
+        question: "How do you secure a Node.js application?",
+        answer: "Use HTTPS: Ensure data is encrypted during transmission. Input Validation: Validate and sanitize user inputs. Environment Variables: Use environment variables for sensitive data. Rate Limiting: Implement rate limiting to prevent DoS attacks. Security Headers: Use security headers like Content-Security-Policy, X-Frame-Options, etc. Authentication and Authorization: Use robust authentication and authorization mechanisms."
+    },
+    {
+        question: "What are some common security concerns in Node.js applications?",
+        answer: "Injection Attacks: SQL injection, NoSQL injection, etc. Cross-Site Scripting (XSS): Inserting malicious scripts into web pages. Cross-Site Request Forgery (CSRF): Forging requests on behalf of authenticated users. Data Exposure: Sensitive data exposure due to improper handling of data. Denial of Service (DoS): Overloading the server with too many requests."
+    },
+    {
         question: "How does Node.js handle asynchronous operations?",
         answer: "Node.js handles asynchronous operations using callbacks, promises, and async/await. The event loop processes asynchronous callbacks and ensures non-blocking I/O operations."
     },
@@ -290,55 +302,71 @@ const expressQuestions = [
 const mongodbQuestions = [
     {
         question: "What is MongoDB, and what are its key features?",
-        answer: "MongoDB is a popular open-source, NoSQL document database that stores data in flexible, JSON-like documents with dynamic schemas. Key features: schemaless, scalable, high-performance, rich query language, support for aggregation, and replication."
+        answer: "MongoDB is a NoSQL, document-oriented database that stores data in flexible, JSON-like documents. It is designed for high availability, scalability, and performance."
     },
     {
         question: "Explain the difference between SQL and NoSQL databases.",
-        answer: "SQL databases are based on a tabular structure with fixed schemas, while NoSQL databases like MongoDB use flexible document models. SQL databases use SQL for querying, while NoSQL databases have various query languages or APIs. SQL databases are vertically scalable, while NoSQL databases are horizontally scalable."
+        answer: "SQL - Relational database management systems (RDBMS). Use structured query language (SQL) for defining and manipulating data. Tables with fixed schemas. Examples: MySQL, PostgreSQL, Oracle. NoSql - Non-relational or distributed database systems. Store data in a variety of formats like document, key-value, wide-column, and graph. Dynamic schemas. Examples: MongoDB, Cassandra, Redis."
     },
     {
         question: "What is a document in MongoDB?",
-        answer: "A document is a way to store data as JSON-like objects, similar to objects in programming languages. Documents consist of key-value pairs and can have nested structures, arrays, and different data types."
+        answer: "A document is a record in MongoDB, stored in BSON (Binary JSON) format. It contains key-value pairs, where keys are strings and values can be various data types such as strings, numbers, arrays, and even other documents."
     },
     {
         question: "What is an embedded document in MongoDB?",
-        answer: "An embedded document is a document that is nested within another document. It allows for better data representation and reduces the need for complex joins or multiple queries."
+        answer: `An embedded document is a document that is nested within another document. It allows for better data representation and reduces the need for complex joins or multiple queries. { name: "Alice", address: { street: "123 Main St", city: "Anytown" } } `
     },
     {
-        question: "",
-        answer: ""
+        question: "What are the main features of MongoDB?",
+        answer: "Document-Oriented Storage: Uses BSON format for documents. Indexing: Supports indexes to improve search performance. Replication: Provides high availability with replica sets. Sharding: Scales horizontally using sharding. Flexible Schema: Allows for dynamic schemas. Aggregation Framework: Powerful query capabilities for data analysis."
     },
     {
-        question: "",
-        answer: ""
+        question: "What is a collection in MongoDB?",
+        answer: "A collection is a group of MongoDB documents, equivalent to a table in relational databases. Collections do not enforce a schema, allowing for flexible data storage."
     },
     {
-        question: "",
-        answer: ""
+        question: "What are CRUD operations in MongoDB",
+        answer: "insertOne, InsertMany, find, updateOne, updateMany, deleteOne, deleteMany"
     },
     {
-        question: "",
-        answer: ""
+        question: "What are MongoDB indexes and why are they important?",
+        answer: "Indexes support the efficient execution of queries by providing fast access to documents in a collection. Without indexes, MongoDB must perform a collection scan, which can be slow. db.collection.createIndex({ name: 1 }); // Create an index on the 'name' field"
     },
     {
-        question: "",
-        answer: ""
+        question: "Explain the Aggregation Framework in MongoDB.",
+        answer: `The Aggregation Framework allows for data processing and transformation using a pipeline approach. Each stage in the pipeline transforms the documents as they pass through. db.collection.aggregate([{ $match: { status: "A" } },{ $group: { _id: "$cust_id", total: { $sum: "$amount" } } },{ $sort: { total: -1 } }]);`
     },
     {
-        question: "",
-        answer: ""
+        question: "What is a replica set in MongoDB?",
+        answer: "A replica set is a group of MongoDB servers that maintain the same data set, providing redundancy and high availability. One node is the primary node that receives write operations, and the others are secondary nodes that replicate the primary's data."
     },
     {
-        question: "",
-        answer: ""
+        question: "Replication",
+        answer: "Replication in MongoDB is the process of creating multiple copies of data across multiple servers. This is done to ensure high availability and data durability. Replication involves creating a replica set, which consists of one primary node and multiple secondary nodes. The primary node is responsible for accepting writes, while the secondary nodes replicate the data from the primary node."
     },
     {
-        question: "",
-        answer: ""
+        question: "Here are the key aspects of replication:",
+        answer: "Replica Set: A replica set is a group of nodes that replicate data. It consists of one primary node and multiple secondary nodes. Primary Node: The primary node is responsible for accepting writes and is the only node that can accept writes. Secondary Nodes: Secondary nodes replicate the data from the primary node and can be used for reads. Data Durability: Replication ensures data durability by creating multiple copies of data across multiple servers. High Availability: Replication ensures high availability by allowing the secondary nodes to take over if the primary node fails."
     },
     {
-        question: "",
-        answer: ""
+        question: "Sharding",
+        answer: "Sharding in MongoDB is the process of horizontally scaling data across multiple servers. This is done to improve performance and scalability. Sharding involves dividing the data into smaller chunks called shards, which are then distributed across multiple servers."
+    },
+    {
+        question: "Here are the key aspects of sharding:",
+        answer: "Shards: A shard is a chunk of data that is distributed across multiple servers. Shard Keys: Shard keys are used to determine which shard a document belongs to. Shard Servers: Shard servers are the servers that store the shards. Data Distribution: Sharding ensures data distribution by dividing the data into smaller chunks and distributing them across multiple servers. Scalability: Sharding improves scalability by allowing the addition of more shard servers as needed."
+    },
+    {
+        question: "Key Differences sharding and replication",
+        answer: "Replication is used for high availability and data durability, while sharding is used for horizontal scaling and performance. Data Distribution: Replication involves creating multiple copies of data across multiple servers, while sharding involves dividing data into smaller chunks and distributing them across multiple servers. Write Concern: Replication ensures that writes are accepted by the primary node, while sharding does not have a write concern."
+    },
+    {
+        question: "What are ACID properties in databases?",
+        answer: "Answer: ACID stands for Atomicity, Consistency, Isolation, and Durability. These properties ensure reliable processing of database transactions. Atomicity: Ensures that all operations within a transaction are completed successfully. If any operation fails, the entire transaction fails and the database is left unchanged. Consistency: Ensures that a transaction brings the database from one valid state to another, maintaining database invariants. Isolation: Ensures that concurrent transactions do not interfere with each other. Each transaction is isolated from others. Durability: Ensures that once a transaction is committed, it will remain so, even in the event of a system crash."
+    },
+    {
+        question: "How do you secure a MongoDB deployment?",
+        answer: "Authentication: Enable authentication to require users to log in. Authorization: Implement role-based access control (RBAC) to restrict user actions. Encryption: Use TLS/SSL for data in transit and enable encryption at rest. Network Security: Use firewalls and IP whitelisting to restrict access."
     },
     {
         question: "",
@@ -372,6 +400,12 @@ const mongodbQuestions = [
                 <a href={`#express${index}`} className='no-underline text-teal-400 hover:no-underline hover:text-inherit hover:cursor-pointer'>{lead.question}</a>
             </li>
         ))}
+        <h1 className='font-bold text-4xl pt-5'>MongoDB-</h1>
+        { mongodbQuestions.map((lead, index) => (
+            <li>
+                <a href={`#mongo${index}`} className='no-underline text-teal-400 hover:no-underline hover:text-inherit hover:cursor-pointer'>{lead.question}</a>
+            </li>
+        ))}
         { reactQuestions.map((lead, index) => (
             <li>
                 <h1 className='no-underline text-teal-400 hover:no-underline lg:text-4xl' id={index}>{lead.question}</h1>
@@ -388,6 +422,12 @@ const mongodbQuestions = [
         { expressQuestions.map((lead, index) => (
             <li>
                 <h1 className='no-underline text-teal-400 hover:no-underline lg:text-4xl' id={`express${index}`}>{lead.question}</h1>
+                <p className='lg:text-2xl text-teal-100 pt-3 pb-5'>{lead.answer}</p>
+            </li>
+        ))}
+        { mongodbQuestions.map((lead, index) => (
+            <li>
+                <h1 className='no-underline text-teal-400 hover:no-underline lg:text-4xl' id={`mongo${index}`}>{lead.question}</h1>
                 <p className='lg:text-2xl text-teal-100 pt-3 pb-5'>{lead.answer}</p>
             </li>
         ))}
