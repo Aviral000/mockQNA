@@ -163,6 +163,14 @@ const nodeQuestions = [
         answer: "Cluster Module: Utilize the cluster module to create child processes that share server ports. Load Balancing: Distribute incoming traffic across multiple servers. Caching: Use caching mechanisms like Redis to store frequently accessed data. Code Profiling: Use tools like clinic to profile and analyze the performance of your application. Asynchronous Operations: Use asynchronous methods to avoid blocking the event loop."
     },
     {
+        question: "Key Concepts Related to setImmediate",
+        answer: "Event Loop: The event loop is the core mechanism in Node.js that handles asynchronous operations. It processes events and executes callbacks. Timers Phase: This is the phase in the event loop where timers are executed. These include setTimeout and setInterval. I/O Callbacks Phase: This phase processes callbacks for completed I/O operations. Check Phase: This is where setImmediate callbacks are executed. setImmediate callbacks are processed after the I/O events' callbacks and before the timers."
+    },
+    {
+        question: "Comparison with Similar Functions",
+        answer: "process.nextTick: This function schedules a callback to be invoked in the next iteration of the event loop, before any I/O operations. It's generally used to process code after the current operation completes but before any I/O callbacks. setTimeout: This function schedules a callback to be executed after a minimum delay specified in milliseconds. The exact time of execution may vary due to the event loop's workload."
+    },
+    {
         question: "How do you secure a Node.js application?",
         answer: "Use HTTPS: Ensure data is encrypted during transmission. Input Validation: Validate and sanitize user inputs. Environment Variables: Use environment variables for sensitive data. Rate Limiting: Implement rate limiting to prevent DoS attacks. Security Headers: Use security headers like Content-Security-Policy, X-Frame-Options, etc. Authentication and Authorization: Use robust authentication and authorization mechanisms."
     },
