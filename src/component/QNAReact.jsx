@@ -179,6 +179,10 @@ const nodeQuestions = [
         answer: "Injection Attacks: SQL injection, NoSQL injection, etc. Cross-Site Scripting (XSS): Inserting malicious scripts into web pages. Cross-Site Request Forgery (CSRF): Forging requests on behalf of authenticated users. Data Exposure: Sensitive data exposure due to improper handling of data. Denial of Service (DoS): Overloading the server with too many requests."
     },
     {
+        question: "NODE.JS SUMMARY",
+        answer: "Node.js is a fast, efficient runtime environment built on Chrome's V8 engine, known for its non-blocking, event-driven architecture. When a request is made, the event emitter sends it to the event queue, where the event loop processes it. The event loop's non-blocking nature allows Node.js to handle multiple concurrent requests without waiting for I/O operations to complete, leveraging callbacks, promises, and async/await for responses. While single-threaded for JavaScript execution, Node.js uses libuv to manage asynchronous I/O operations. For better scalability and performance on multi-core systems, the Cluster module and Worker Threads can be used. Node.js's design makes it ideal for real-time, scalable applications, maintaining high performance with a single-threaded, non-blocking event loop."
+    },
+    {
         question: "Child Thread",
         answer: "Separate Memory: Each child process runs independently with its own memory. Communication: Parent and child processes can communicate via IPC. Modules: child_process, cluster. Creates separate processes with their own memory and event loops. Suitable for tasks that need isolation or are CPU-intensive."
     },
