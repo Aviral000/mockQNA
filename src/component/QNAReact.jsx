@@ -176,7 +176,7 @@ const nodeQuestions = [
     },
     {
         question: "What are some common security concerns in Node.js applications?",
-        answer: "Injection Attacks: SQL injection, NoSQL injection, etc. Cross-Site Scripting (XSS): Inserting malicious scripts into web pages. Cross-Site Request Forgery (CSRF): Forging requests on behalf of authenticated users. Data Exposure: Sensitive data exposure due to improper handling of data. Denial of Service (DoS): Overloading the server with too many requests."
+        answer: "Injection Attacks: SQL injection, NoSQL injection, etc. Prevention: Validate and sanitize inputs. Use parameterized queries or an ORM like Mongoose. Cross-Site Scripting (XSS): Inserting malicious scripts into web pages. Prevention: Escape user input before rendering it in HTML. Use libraries like xss or templating engines that auto-escape output, such as Pug. Cross-Site Request Forgery (CSRF): Forging requests on behalf of authenticated users. Prevention: Use CSRF tokens to verify the legitimacy of requests. Libraries like csurf can help. Data Exposure: Sensitive data exposure due to improper handling of data. Prevention: Environmental Variable usage. Denial of Service (DoS): Overloading the server with too many requests. Prevention: Implement rate limiting using middleware like express-rate-limit."
     },
     {
         question: "NODE.JS SUMMARY",
